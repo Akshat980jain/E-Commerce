@@ -29,8 +29,9 @@ async function createServer() {
   }
   
   // Start the server and listen on the specified port
-  app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+  // Bind to 0.0.0.0 to listen on all available network interfaces (required for Render)
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on http://0.0.0.0:${PORT}`);
   });
 }
 
