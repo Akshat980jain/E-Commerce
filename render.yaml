@@ -2,7 +2,7 @@ services:
   - type: web
     name: quickkart
     env: node
-    buildCommand: npm install && npm run build
+    buildCommand: npm ci && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV
@@ -10,4 +10,13 @@ services:
       - key: PORT
         value: 3000
       - key: MONGODB_URI
-        sync: false # You'll need to set this in the Render dashboard 
+        sync: false # You'll need to set this in the Render dashboard
+    buildFilter:
+      paths:
+        - src/**
+        - public/**
+        - index.html
+        - vite.config.ts
+        - package.json
+        - package-lock.json
+        - server.js 
