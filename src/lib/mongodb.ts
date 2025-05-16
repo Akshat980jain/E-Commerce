@@ -1,7 +1,8 @@
 import mongoose from 'mongoose';
+import { MONGODB_URI } from '../config/api';
 
 // Use environment variable for MongoDB URI if available
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/quickkart';
+// const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/quickkart';
 
 if (!MONGODB_URI) {
   throw new Error('Please define the MONGODB_URI environment variable');

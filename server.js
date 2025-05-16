@@ -2,17 +2,27 @@ import express from 'express';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import fs from 'fs';
+import cors from 'cors';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // Get port from environment variable (Render sets this)
 const PORT = process.env.PORT || 3000;
+// Backend API URL
+const API_URL = 'https://quickkart-jawy.onrender.com';
 
 // Create express app
 const app = express();
 
+// Enable CORS for all routes
+app.use(cors());
+
+// Parse JSON request bodies
+app.use(express.json());
+
 // Log information about the current environment
 console.log('Current directory:', __dirname);
 console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('API URL:', API_URL);
 console.log('Checking if dist directory exists...');
 
 const distPath = path.resolve(__dirname, 'dist');
