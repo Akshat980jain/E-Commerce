@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "static-build": "node build-static.js",
+    "postbuild": "echo 'Build completed' && ls -la dist",
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "node server.js"

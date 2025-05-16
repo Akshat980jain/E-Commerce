@@ -2,7 +2,12 @@ services:
   - type: web
     name: quickkart
     env: node
-    buildCommand: npm ci && npm run build
+    buildCommand: |
+      npm ci
+      npm run static-build
+      ls -la # Print directory contents for debugging
+      ls -la dist # Print dist directory contents for debugging
+      echo "Build complete"
     startCommand: npm start
     envVars:
       - key: NODE_ENV
@@ -19,4 +24,5 @@ services:
         - vite.config.ts
         - package.json
         - package-lock.json
-        - server.js 
+        - server.js
+        - build-static.js 
